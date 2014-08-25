@@ -4,7 +4,7 @@
 	Find the largest palindrome made from the product of two 3-digit numbers.
 */
 
-// node prob-4-paindromes.js
+// node --harmony prob-4-paindromes.js
 
 // splits string into arr, reverses array, returns a rejoined str
 function reverse(s) {
