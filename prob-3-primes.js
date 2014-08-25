@@ -10,7 +10,7 @@ What is the largest prime factor of the number 600851475143 ?
 // node --harmony prob-3-primes.js
 
 
-// this is not finished, could be much better
+// this is not finished, could be much better, pieced together from my own work and examples of other solutions i found online
 
 (function() {
 	'use strict';

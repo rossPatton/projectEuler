@@ -42,6 +42,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 				sum += fibo[len];
 			}
 		}
+
 		console.log(sum);
 	};
 
