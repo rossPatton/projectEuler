@@ -27,8 +27,11 @@ What is the largest prime factor of the number 600851475143 ?
 
 	  // console.log(result)
 
-	  if (num % x) {//if not divisible by 2
-	  	x = 3; //assign first odd
+	  //if not divisible by 2
+	  if (num % x) {
+	  	//assign first odds
+	  	x = 3;
+
 	  	console.log(num % x)
 	  	while( (num % x) && ((x = x + 2) < root) ) {
 		  	// iterates through odds up to root
