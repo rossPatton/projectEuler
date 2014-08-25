@@ -4,6 +4,7 @@ var arr = [4123,96,86,68,57,8,3,7,37,3,83,2,19,97, 9,17,48,96,86,68,5,82,63,70,3
 
 // bubble sort
 (function() {
+	'use strict';
 	var start = performance.now(),
 			i = 0,
 			j = 0,
@@ -28,18 +29,21 @@ var arr = [4123,96,86,68,57,8,3,7,37,3,83,2,19,97, 9,17,48,96,86,68,5,82,63,70,3
 	console.log(sorted);
 }());
 
-// alt example, 25% to 50% faster... usually
+// alt example, >50% faster... usually
 (function() {
+	'use strict';
 	var start = performance.now(),
 			end,
 			len = arr.length - 1,
 			sorted = arr;
 
 	while (len--) {
-		for (j = len + 1; j < arr.length; j++) {
+		var j = len + 1;
+		while (j < arr.length) {
 			if (arr[len] > arr[j]) {
 				sorted[len] = [arr[j], arr[j] = sorted[len]][0]; // destructuring
 			}
+			j ++;
 		}
 	}
 

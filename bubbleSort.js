@@ -18,10 +18,12 @@ const arr = [4123,96,86,68,57,8,3,7,37,3,83,2,19,97, 9,17,48,96,86,68,5,82,63,70
 			sorted = arr;
 
 		while (len--) {
-			for (let j = len + 1; j < arr.length; j++) {
+			let j = len + 1;
+			while (j < arr.length) {
 				if (arr[len] > arr[j]) {
-					sorted[len] = [arr[j], arr[j] = sorted[len]][0]; // es6 destructuring
+					sorted[len] = [arr[j], arr[j] = sorted[len]][0]; // destructuring
 				}
+				j ++;
 			}
 		}
 
