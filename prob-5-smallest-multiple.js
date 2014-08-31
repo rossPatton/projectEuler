@@ -22,7 +22,7 @@ const present = require('present');
 
 		for (i; i >= 0; i--) {
 		/* oddly, in my tests anyway, while outperforms for at smaller array sizes
-			 but falls behind when the array gets larger
+			 buuuuutt falls behind when the array gets larger. at len = 20, while is routinely .5 - 1s slower
 		*/
 		// while(len--) {
 			if (num % arr[i] !== 0) {
@@ -45,44 +45,3 @@ const present = require('present');
 	}
 
 }());
-
-// var time = process.hrtime();
-// // [ 1800216, 25 ]
-
-// setTimeout(function() {
-//   var diff = process.hrtime(time);
-//   // [ 1, 552 ]
-
-//   console.log('benchmark took %d nanoseconds', diff[0] * 1e9 + diff[1]);
-//   // benchmark took 1000000527 nanoseconds
-// }, 1000);
-
-// num % arr[i] === 0
-		// while(isDivis === true) {
-
-		// 	console.log(isDivis)
-
-		// 	// if (len === 0) {
-		// 	// 	console.log('divisible by: ' + num);
-		// 	// }
-
-		// 	num++;
-		// 	isDivis = (num % arr[len] === 0);
-
-		// }
-
-		// num++;
-
-		// console.log(isDivis);
-		// for (let i = 0; i <= arr.length - 1; i++) {
-		// 	// for (let i = 0; i <= arr.length - 1; i++) {
-		// 	if (num % arr[i] === 0) {
-		// 		console.log('divisible by: ' + i);
-		// 		if (i === arr.length - 1) {
-		// 			remainderExists = false;
-		// 			console.log(num)
-		// 		}
-		// 	} else {
-		// 		num++;
-		// 	}
-		// }

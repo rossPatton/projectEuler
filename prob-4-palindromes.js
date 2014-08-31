@@ -11,7 +11,7 @@ function reverse(s) {
   return s.split('').reverse().join('');
 }
 
-(function() {
+;(function() {
 	'use strict';
 
 	const upperLimit = 999;
