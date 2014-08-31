@@ -35,7 +35,7 @@ const present = require('present');
 			let end = present();
 			remainderExists = false;
 
-			console.log('sort1 took: ' + (end - start) + ' ms.');
+			console.log('op took: ' + (end - start) + ' ms.');
 			console.log('Smallest Multiple Is: ' + num);
 			return;
 		}
