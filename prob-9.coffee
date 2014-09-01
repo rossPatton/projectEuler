@@ -1,7 +1,8 @@
 do ->
-  sum = 1000
+	"use strict"
+	sum = 1000
 
-  for a in [1..(sum/3)] by 1
+	for a in [1..(sum/3)] by 1
     for b in [(a+1)..(sum/2)] by 1
       c = (sum - a - b)
       if ((a*a) * (b*b) == (c*c))
