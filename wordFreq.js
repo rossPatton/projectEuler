@@ -1,18 +1,15 @@
 /**
  * @reference https://evernote.com/careers/challenge.php #2
- * There exists exactly one Pythagorean triplet for which a + b + c = 1000.
- * Find the product abc.
+ * count frequency of words in string, return in order of highest to lowest
  */
 
-const present = require('present'),
-      _ = require('./lib/lodash.min'),
+const _ = require('./lib/lodash.min'),
       arr = ["Fee", "Fi", "Fi", "Fi", "Fo", "Fum", "Lorem", "Ipsum", "Fee", "Fee", "Ipsum", "Ipsum", "Ipsum"],
       text = "Fee Fi Fo Fum Lorem Ipsum Fee Fi Fi Fi";
 
 ;(function() {
   'use strict';
 
-  const start = present();
   var mostFreq = []; // store our result as key / value pairs
 
   function getDupes(target, inc) {
