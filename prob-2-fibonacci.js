@@ -18,7 +18,8 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 	var fibo = [];
 
 	function fibonacci() {
-		for (let i = 0; i < 50; i++) {
+		var i = 0;
+		for (i; i < 50; i++) {
 			if (i === 0) {
 				fibo[i] = i;
 			} else if (i === 1) {

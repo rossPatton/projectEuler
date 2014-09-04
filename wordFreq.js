@@ -31,6 +31,7 @@ const _ = require('./lib/lodash.min'),
     if (inc < pointer.length) {
 
       // start at inc, loop through the array, find dupes, count them
+      // @TODO do this with _.every or _.some instead of a for loop
       for (var i = (inc + 1); i < pointer.length; i++) {
         if (pointer[inc] === pointer[i]) {
           count++;
