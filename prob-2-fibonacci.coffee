@@ -1,5 +1,5 @@
 do ->
-	'use strict'
+  'use strict'
   upperLimit = 4000000
   fibo = []
 
