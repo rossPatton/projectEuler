@@ -11,18 +11,19 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 // node --harmony fibonacci.js
 
 
+// make this re-usable, add memoization
 (function() {
 	'use strict';
 
 	const upperLimit = 4000000;
 	var fibo = [];
 
-	function fibonacci() {
-		var i = 0;
+	function fibonacci(max) {
+		var i = 0
+
+		// this is dumb
 		for (i; i < 50; i++) {
-			if (i === 0) {
-				fibo[i] = i;
-			} else if (i === 1) {
+			if (i === 0 || i === 1) {
 				fibo[i] = i;
 			} else {
 				if (fibo[i-1] < upperLimit) {
@@ -47,6 +48,6 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 		console.log(sum);
 	};
 
-	fibonacci();
+	fibonacci(4000000);
 
 }());
