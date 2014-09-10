@@ -6,7 +6,7 @@
 // */
 
 
-// still hate primes, and math, but will
+// still hate primes, and math, but will come back to this later
 const present = require('present');
 
 ;(function() {

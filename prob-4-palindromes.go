@@ -17,7 +17,7 @@ func main() {
 
 	for i := 0; i < upperLimit; i++ {
 		tempNum := (i*i)
-		if palidrome(strconv.Itoa(tempNum)) {
+		if palindrome(strconv.Itoa(tempNum)) {
 			result = append(result, tempNum)
 		}
 	}
@@ -26,10 +26,11 @@ func main() {
 	fmt.Println("Biggest 3 digit palindrome is: ", result[last])
 }
 
-// helper funcs below i did not write, just reversed the string and returns true or false
+// helper funcs below i did not write, just reverses the string and returns true or false
+// i didn't want to deal with boilerplate
 
 // this returns true if string is a palindrome
-func palidrome(s string) bool {
+func palindrome(s string) bool {
 	return reverse(s) == s
 }
 
