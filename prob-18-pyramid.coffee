@@ -82,17 +82,27 @@ do ->
 
     for key of pyramid
       if pyramid.hasOwnProperty(key)
-        max = _.max(pyramid[key])
-        sum += max
+        sum += _.max(pyramid[key])
 
     console.log 'alt: ' + sum
 
 
-  # below returns the same as _.max but less concise
-  # max = pyramid[key][0]
-  # index = 0
+  # @solution 3
+  # without lodash
+  do ->
+    sum = 0
 
-  # for i in [0..pyramid[key].length] by 1
-  #   if pyramid[key][i] > max
-  #     index = i
-  #     max = pyramid[key][i]
+    for key of pyramid
+      if pyramid.hasOwnProperty(key)
+        max = pyramid[key][0]
+
+        for i in [0..pyramid[key].length-1] by 1
+          if pyramid[key][i] > max
+            max = pyramid[key][i]
+
+        sum += max
+
+    console.log 'alt 2: ' + sum
+
+
+  # below returns the same as _.max but less concise
