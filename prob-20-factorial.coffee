@@ -17,27 +17,37 @@ do ->
 
   f = []
 
+  # i did it with loops first then did this recursion instead
+  # performance difference is negligible
   factorial = (num) ->
+    # stop if at end
     if num is 1
       return 1
 
+    # memoization
     if f[num] > 0
       return f[num]
 
+    # return itself until num = 1
     return f[num] = factorial(num - 1) * num
 
 
+  # adds up all the nums in our factorial
   factorialSum = (factor) ->
+    # factorials get big real fast, have to make a str
     fStr = factor.toString().replace('.', '')
+    # remove notation stuff
     fArr = fStr.substr(0, fStr.indexOf('e')).split('')
     fSum = 0
 
+    # loop through the array of nums, add em
     for i in [fArr.length - 1..0] by -1
       fSum += parseInt(fStr.charAt(i), 10)
 
     return fSum
 
 
+  # result + benchmarking
   start = present()
   console.log factorialSum(factorial parseInt(100, 10))
   console.log 'op took: ' + (present() - start) + ' ms'
