@@ -11,8 +11,7 @@ do ->
         toString().
         replace('.', '')
   # remove scientific notation, turn into arr we can loop over
-  powArr = pow.substr(0, pow.indexOf('e')).
-        split('')
+  powArr = pow.substr(0, pow.indexOf('e')).split('')
 
   # final result
   sum = 0

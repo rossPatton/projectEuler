@@ -1,18 +1,28 @@
+present = require('present')
+
 do ->
   'use strict'
   upperLimit = 4000000
   fibo = []
+  start = present()
 
   fibonacci = ->
-    i = 0
-    for i in [0..50] by 1
+    i = 1
+    min = 0
+    max = 500000
+    value = 0
+
+    for i in [min..max] by 1
       if i is 0 or i is 1
-        fibo[i] = i
+        value = i
       else
         if fibo[i-1] < upperLimit
-          fibo[i] = fibo[i-2] + fibo[i-1]
+          value = fibo[i-2] + fibo[i-1]
+
+      fibo[i] = value
 
     calcEvens(fibo)
+
 
   calcEvens = (fibo) ->
     len = fibo.length
@@ -23,5 +33,7 @@ do ->
         sum += fibo[len]
 
     console.log(sum)
+    console.log 'op took: ' + (present() - start) + ' ms.'
+
 
   fibonacci()

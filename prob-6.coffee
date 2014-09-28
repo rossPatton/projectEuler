@@ -1,5 +1,6 @@
 # so concise!
 do ->
+  'use strict'
 	sum = 0
 	sumSq = 0
 

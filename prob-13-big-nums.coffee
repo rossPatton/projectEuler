@@ -1,6 +1,7 @@
 arr = require('./big-num-array')
 
 do ->
+  'use strict'
   sum = 0
 
   addNums = (arr) ->

@@ -31,10 +31,13 @@
 #
 # @solution: 1313
 #
+#
+#@FIXME this solution is actually not correct
 
 _ = require('./lib/lodash.min')
 
 do ->
+  'use strict'
   pyramid = {
     0: [75],
     1: [95, 64],
@@ -103,6 +106,3 @@ do ->
         sum += max
 
     console.log 'alt 2: ' + sum
-
-
-  # below returns the same as _.max but less concise

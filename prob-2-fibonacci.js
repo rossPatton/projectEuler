@@ -12,21 +12,20 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 
 // make this re-usable, add memoization
-(function() {
+;(function() {
 	'use strict';
 
-	const upperLimit = 4000000;
 	var fibo = [];
 
-	function fibonacci(max) {
-		var i = 0
+	function fibonacci(limit) {
+		var i = 0;
 
 		// this is dumb
 		for (i; i < 50; i++) {
 			if (i === 0 || i === 1) {
 				fibo[i] = i;
 			} else {
-				if (fibo[i-1] < upperLimit) {
+				if (fibo[i-1] < limit) {
 					fibo[i] = fibo[i-2] + fibo[i-1];
 				}
 			}
@@ -46,7 +45,7 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 		}
 
 		console.log(sum);
-	};
+	}
 
 	fibonacci(4000000);
 

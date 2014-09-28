@@ -4,6 +4,7 @@
 present = require('present')
 
 do ->
+  'use strict'
   start = present()
   seq = []
   max = 1000001
