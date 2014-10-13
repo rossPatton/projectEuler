@@ -31,7 +31,7 @@ func main() {
 			remExists = false
 			fmt.Println(num)
 
-			// golang complete this about 1000ms faster than js does
+			// golang completes this about 1000ms faster than js does
 	    fmt.Println("Operation took: ", time.Since(start))
 			return
 		}

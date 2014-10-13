@@ -24,6 +24,6 @@
 		sumSq += (i*i);
 	}
 
-	console.log("The Sum Square Difference is: " + ( (sum*sum) - sumSq) );
+	console.log('The Sum Square Difference is: ' + ( (sum*sum) - sumSq) );
 
 }());

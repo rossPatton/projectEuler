@@ -14,10 +14,11 @@ function reverse(s) {
 ;(function() {
 	'use strict';
 
-	const upperLimit = 999;
-	var result = [];
+	const limit = 999;
+	var result = [],
+			i = 0;
 
-	for (let i = 0; i < upperLimit; i++) {
+	for (i; i < limit; i++) {
 		let tempNum = i*i;
 
 		if (tempNum.toString() === reverse(tempNum.toString())) {
