@@ -7,9 +7,9 @@
 		$i = 1;
 		$value = 0;
 
-		for ($i; $i <= 50; $i++) {
+		while ($value < $limit) {
 
-			if ($i == 0 || $i == 1) {
+			if ($i === 0 || $i === 1) {
 				$value = $i;
 			}
 			else {
@@ -20,6 +20,8 @@
 				array_push($fibo, $value);
 			}
 
+			// echo $value . "\n";
+			$i++;
 		}
 
 		calcEvens($fibo);

@@ -22,7 +22,7 @@ var fibo = []int {}
 	runs an arbitrary amount of times
 */
 func main() {
-	upperlimit:= 4000000
+	limit:= 4000000
 
 	for i:= 0; i <= 50; i++ {
 		if i == 0 {
@@ -30,7 +30,7 @@ func main() {
 		} else if i == 1 {
 			fibo = append(fibo, 2)
 		} else {
-			if fibo[i-1] < upperlimit {
+			if fibo[i-1] < limit {
 				temp:= fibo[i-1] + fibo[i-2]
 				fibo = append(fibo, temp)
 			} else {
