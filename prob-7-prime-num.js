@@ -28,7 +28,6 @@ const present = require('present');
 	    		i = 1,
 	    		limit = Math.sqrt(n) + 1, // no point in iterating past sqrt
 	    		isPrime = true;
-	    		console.log('limit: ' + limit)
 
 	    while (div < limit) {
 	      if (n % div === 0) {
@@ -46,14 +45,13 @@ const present = require('present');
 	    n += 2;
 	  }
 
-	  const end = present();
 
-	  console.log('op took: ' + (end - start) + ' ms.');
+	  console.log('op took: ' + (present() - start) + ' ms.');
 
 	  return prime[prime.length - 1];
 	}
 
-	console.log(nthPrime(101));
+	console.log(nthPrime(10001));
 
 }());
 

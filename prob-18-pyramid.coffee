@@ -29,10 +29,7 @@
 # each one array at a time, mapping out the highest num each time
 # which i will then add up at the end
 #
-# @solution: 1313
-#
-#
-#@FIXME this solution is actually not correct
+# @solution: 1088
 
 _ = require('./lib/lodash.min')
 
@@ -57,52 +54,32 @@ do ->
   }
 
   # @solution 1
-  # nums taken to reach end.
-  truePath = []
   # final result to return
   sum = 0
+  # current index
+  index = 0
+  # range to check for max
+  range = [0]
 
   # loop through the pyramid
   for key of pyramid
     # if key exists, get the largest num in the array
     if pyramid.hasOwnProperty(key)
-      # with lodash
-      max = _.max(pyramid[key])
-      # push to new array
-      truePath.push(max)
+      max = _.max(pyramid[key].slice(range[0], range[range.length - 1] + 1))
 
-  # now that we have the correct path, add them up
-  _.each truePath, (el, index) ->
-    sum += truePath[index]
+    # get new index
+    index = _.indexOf(pyramid[key], max)
 
+    # keep range in bounds
+    if index > 0 and index < pyramid[key].length
+      range = [index - 1, index, index + 1]
+    else if index == 0
+      range = [index, index, index + 1]
+    else
+      range = [index - 1, index, index]
+
+    # add to our sum
+    sum += max
+
+  # answer
   console.log sum
-
-
-  # @solution 2
-  # alternatively, if we don't need to keep track of the path
-  do ->
-    sum = 0
-
-    for key of pyramid
-      if pyramid.hasOwnProperty(key)
-        sum += _.max(pyramid[key])
-
-    console.log 'alt: ' + sum
-
-
-  # @solution 3
-  # without lodash
-  do ->
-    sum = 0
-
-    for key of pyramid
-      if pyramid.hasOwnProperty(key)
-        max = pyramid[key][0]
-
-        for i in [0..pyramid[key].length-1] by 1
-          if pyramid[key][i] > max
-            max = pyramid[key][i]
-
-        sum += max
-
-    console.log 'alt 2: ' + sum

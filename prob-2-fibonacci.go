@@ -27,13 +27,16 @@ func main() {
 	for i:= 0; i <= 50; i++ {
 		if i == 0 {
 			fibo = append(fibo, 1)
-		} else if i == 1 {
+		}
+		else if i == 1 {
 			fibo = append(fibo, 2)
-		} else {
+		}
+		else {
 			if fibo[i-1] < limit {
 				temp:= fibo[i-1] + fibo[i-2]
 				fibo = append(fibo, temp)
-			} else {
+			}
+			else {
 				length := len(fibo)
 				sum := 0
 

@@ -24,7 +24,8 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 		for (i; i < 50; i++) {
 			if (i === 0 || i === 1) {
 				value = i;
-			} else if (fibo[i-1] < limit) {
+			}
+			else if (fibo[i-1] < limit) {
 				value = fibo[i-2] + fibo[i-1];
 			}
 

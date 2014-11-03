@@ -10,17 +10,16 @@ go run prob-1-fizzbuzz.go
 */
 
 package main
-
 import "fmt"
 
 func main() {
+  sum := 0
+
   for i := 1; i <= 1000; i++ {
-    if i % 15 == 0 {
-      fmt.Println(i, "fizzbuzz")
-    } else if i % 3 == 0 {
-        fmt.Println(i, "fizz")
-   	} else if i % 5 == 0 {
-        fmt.Println(i, "buzz")
-    }
+    if i % 3 == 0 || i % 5 == 0 {
+      sum += i;
+   	}
   }
+
+  fmt.Println(sum);
 }
