@@ -14,6 +14,9 @@ import "fmt"
 import "math"
 
 
+// this one doesnt work yet
+
+
 /*
 	a recursive function would probs be better than a for loop that
 	runs an arbitrary amount of times
