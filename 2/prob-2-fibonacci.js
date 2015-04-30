@@ -37,3 +37,20 @@ function getfibz(limit) {
 }
 
 console.log( getfibz(4000000) );
+
+// alternative below using generators
+(function() {
+	let fibz = [0, 1, 1];
+	let limit = 4000000;
+
+	// get fibz up to limit, then calc evens
+	function* fibzGen(fibz) {
+		yield fibz[fibz.length - 1] + fibz[fibz.length - 2];
+	}
+
+	while ( fibz[fibz.length - 1] < limit ) {
+		fibz.push(fibzGen(fibz).next().value);
+	}
+
+	console.log(calcEvens(fibz));
+}());

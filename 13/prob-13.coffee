@@ -1,4 +1,4 @@
-arr = require('./big-num-array')
+arr = require('../big-num-array')
 
 do ->
 	'use strict'

@@ -1,7 +1,7 @@
 /**
  * @reference https://projecteuler.net/problem=11
  * @problem What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
- * @solution 142915828925
+ * @solution 70600674
 
  * iojs --harmony_arrow_functions prob-11.js
 */
