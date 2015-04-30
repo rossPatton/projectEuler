@@ -6,6 +6,8 @@
 
 # By considering the terms in the fibsnacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
+# @solution 4613732
+
 # ruby prob-2.rb
 
 def fibs()

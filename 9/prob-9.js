@@ -1,7 +1,9 @@
 /**
  * @reference https://projecteuler.net/problem=9
- * There exists exactly one Pythagorean triplet for which a + b + c = 1000.
- * Find the product abc.
+ * @description  There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+ * @problem Find the product abc.
+ * @solution a 200 plus b 375 plus c 425 equals 1000
+ * iojs prob-9.js
  */
 
 'use strict';

@@ -11,10 +11,3 @@ func main() {
 	tri := (divs * (divs + 1) / 2)
 	fmt.Println(tri)
 }
-
-// func getTriNum(divs int) {
-// 	tri := (divs * (divs + 1) / 2)
-// 	fmt.Println(tri);
-
-// 	return tri;
-// }
