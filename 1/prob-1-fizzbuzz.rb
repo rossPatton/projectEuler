@@ -7,10 +7,12 @@
 
 # ruby prob-1-fizzbuzz.rb
 
+# @solution 233168
+
 
 $sum = 0
 
-1.upto(1000) do |i|
+0.upto(999) do |i|
 	if i % 3 == 0 or i % 5 == 0
 		$sum += i
 	end

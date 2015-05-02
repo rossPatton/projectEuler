@@ -3,23 +3,27 @@
  * @description  Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
  * @problem How many such routes are there through a 20×20 grid?
  *
- * @solution 125250
+ * @solution
  * iojs prob-15.js
 */
 
 'use strict';
 
-/**
- * Return triangle number with nth number of divisors
- * @param  {int} divs [number of divisors final int will have]
- * @return {int}      [final int]
- */
-// function test(divs) {
-// 	let triNum = (divs * (divs + 1) / 2);
-// 	return triNum;
-// }
+// i basically just used the algo i found on wikipedia
 
-// let testSet = new Set([[0,1,2],[0,1,2],3,4,5,5]);
-// for ( let item of testSet ) console.log(item);
+function getRoutes(gridSize) {
+	if ( typeof gridSize !== 'number' ) {
+		return;
+	}
 
-// console.log( testSet.has(5) );
+	let routes = 1;
+
+	for ( let i = 0; i < gridSize; i++ ) {
+		routes *= (2 * gridSize) - i;
+		routes = routes / ( i + 1 );
+	}
+
+	return routes;
+}
+
+console.log( getRoutes(20) );
