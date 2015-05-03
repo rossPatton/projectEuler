@@ -84,7 +84,6 @@ function sumAdjacents(grid, adj) {
 
 			// SUM DIAGONALS
 			if ( index < x && vRange < y ) {
-				// prod = M[i][j] * M[i+1][j+1] * M[i+2][j+2] * M[i+3][j+3]
 				let horizontal = index;
 				let vertical = row;
 				let temp = grid[row][index];
