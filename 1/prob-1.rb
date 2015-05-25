@@ -10,8 +10,8 @@
 # @solution 233168
 
 def fizz(limit)
-	(1..limit).map do |i|
-		if i % 3 == 0 or i % 5 == 0 then i else 0 end
+	(1..limit).find_all do |i|
+		i % 3 == 0 or i % 5 == 0
 	end.reduce(:+)
 end
 
