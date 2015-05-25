@@ -14,7 +14,6 @@ iojs --harmony_arrow_functions prob-21.js
 
 'use strict';
 
-const _ = require('lodash');
 const present = require('present');
 
 // return an array of the divisors of a number

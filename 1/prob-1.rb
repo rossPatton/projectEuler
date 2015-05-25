@@ -9,13 +9,10 @@
 
 # @solution 233168
 
-
-$sum = 0
-
-0.upto(999) do |i|
-	if i % 3 == 0 or i % 5 == 0
-		$sum += i
-	end
+def fizz(limit)
+	(1..limit).map do |i|
+		if i % 3 == 0 or i % 5 == 0 then i else 0 end
+	end.reduce(:+)
 end
 
-puts $sum
+puts fizz(999)
