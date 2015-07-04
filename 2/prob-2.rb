@@ -10,28 +10,20 @@
 
 # ruby prob-2.rb
 
-def fibs()
-	fibs = [0,1,1]
+def fibs(limit)
+	fibs = [0, 1, 1]
 
-	while fibs[ fibs.length - 1 ] < 4000000
+	until fibs[ fibs.length - 1 ] > limit
 		fibs.push( fibs[fibs.length - 1] + fibs[fibs.length - 2] )
 	end
 
-	calcEvens(fibs)
+	return fibs
 end
 
 def calcEvens(fibs)
-	len = fibs.length - 1
-	sum = 0
-
-	while len > 0
-		if ( fibs[len] % 2 ) === 0
-			sum += fibs[len]
-		end
-		len = len - 1
-	end
-
-	puts sum
+	fibs.find_all do |i|
+		i % 2 == 0
+	end.reduce(:+)
 end
 
-fibs()
+puts calcEvens( fibs(4000000) )

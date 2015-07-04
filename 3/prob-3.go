@@ -3,9 +3,10 @@
 	The prime factors of 13195 are 5, 7, 13 and 29.
 	What is the largest prime factor of the number 600851475143 ?
 	go run prob-3.go
+	solution: 6857 of [ 71, 839, 1471, 6857 ]
 
-	@TODO so this actually returns the correct answer
-		  but then hangs for reasons i don't yet understand
+	disclosure: took most of this from a tutorial
+				changed a little bit, needs more work, but was useful to learn channels
 */
 
 package main
@@ -13,56 +14,60 @@ package main
 import "fmt"
 import "math"
 
-
-// this one doesnt work yet
-
-
-/*
-	a recursive function would probs be better than a for loop that
-	runs an arbitrary amount of times
-*/
-func main() {
-	// fmt.Println(num)
-	var result []int
-	fmt.Println( primeFactors(600851475143, result) )
+func factor(num int, ch1 chan int) {
+	root := int( math.Sqrt( float64(num) ) )
+	ch1 <- 2
+	if num % 2 != 0 {
+		for i := 3; i <= root; i += 2 {
+			ch1 <- i
+		}
+	}
+	// signal that the limit is reached
+	ch1 <- -1
 }
 
-func primeFactors(num int, result []int) []int {
-	root := math.Sqrt(float64(num))
-	x := 2
+// Copy the values from channel 'in' to channel 'out',
+// removing those divisible by 'prime'.
+func filter(in <-chan int, out chan<- int, prime int) {
+	for i := <-in; i != -1; i = <-in {
+		if i % prime != 0 {
+			out <- i
+		}
+	}
+	out <- -1
+}
 
-	fmt.Println(root)
+func factorize(num int) {
+	results := []int{}
+	ch1 := make(chan int)
+	go factor(num, ch1)
 
-	// if not divisible by 2
-	if num % x != 0 {
-		 // assign first odd
-		x = 3
-		// keep dividing up to square root
-		for num % x != 0 {
-			if float64(x) < root {
-				x = x + 2
-			}
+	for prime := <-ch1; (prime != -1) && (num > 1); prime = <-ch1 {
+		for num % prime == 0 {
+			num = num / prime
+			results = append(results, prime)
+		}
+
+		ch2 := make(chan int)
+		go filter(ch1, ch2, prime)
+		ch1 = ch2
+	}
+
+	fmt.Println( Max(results) )
+}
+
+func Max(vec []int) int {
+	max := vec[0]
+
+	for i := 1; i < len(vec); i++ {
+		if vec[i] > max {
+			max = vec[i]
 		}
 	}
 
-	if float64(x) > root {
-		x = num
-	}
+	return max
+ }
 
-	// fmt.Println("floated x", float64(x))
-	// fmt.Println("x", x)
-	// fmt.Println("num", num)
-	// fmt.Println("num/x", num/x)
-	// fmt.Println("root", root)
-	// fmt.Println("num/x", num/x)
-
-	// result = append(result, x) // push latest prime factor
-	fmt.Println(result)
-
-	// if num isn't prime factor make recursive call
-	if x == num {
-		return result
-	} else {
-		return primeFactors(num/x, result)
-	}
+func main() {
+	factorize( 600851475143 )
 }
