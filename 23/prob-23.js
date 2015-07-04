@@ -14,7 +14,10 @@ iojs --harmony_arrow_functions prob-23.js
 
 'use strict';
 
+const range = require('lodash/utility/range');
+const indexOf = require('lodash/array/indexOf');
 let abundants = [];
+
 
 function getDivs(num) {
 	let range = num / 2;
@@ -27,6 +30,7 @@ function getDivs(num) {
 		}
 	}
 
+	// return arr;
 	return sumDivs(arr, num);
 }
 
@@ -35,20 +39,99 @@ function sumDivs(arr, num) {
 		return prev + curr;
 	});
 
-	return isAbundant(num, sum);
+	// return sum;
+
+	return isAbundant(sum, num);
 }
 
-function isAbundant(original, sum) {
-	if ( original < sum ) {
+function isAbundant(sum, original) {
+	if ( sum > original ) {
 		return true;
 	}
 }
 
-for ( let i = 1; i <= 28123; i++ ) {
-	if ( getDivs(i) ) {
-		abundants.push( i );
+function getSum() {
+	let limit = range(12, 20161);
+	var a = 0;
+	var i = 0;
+	var j = 0;
+	var len = abundants.length;
+	var isNotSumOfAbundants = false;
+	let results = [];
+
+	for ( i in limit ) {
+		if ( typeof getDivs(i) !== 'undefined' ) {
+			abundants.push(i);
+		}
 	}
+
+	// console.log( abundants.length );
+	// abundants.forEach(function(a, i) {
+	// 	isNotSumOfAbundants = indexOf( limit, a + abundants[i + 1] ) === -1;
+
+	// 	if ( isNotSumOfAbundants ) {
+	// 		return results.push( s );
+	// 	}
+	// });
+
+	// for ( a in abundants ) {
+	// 	isNotSumOfAbundants = abundants.every(function(a, i) {
+	// 		return a + abundants[i + 1] !== j;
+	// 	});
+	// }
+
+	// for ( j in limit ) {
+	// 	isNotSumOfAbundants = abundants.every(function(a, i) {
+	// 		return a + abundants[i + 1] !== j;
+	// 	});
+		// ( abundants[a] + abundants[a + 1] ) === j;
+
+		// if ( isNotSumOfAbundants ) {
+		// 	results.push( j );
+		// }
+			// isSumOfAbundants = abundants.some(function(a, i) {
+			// 	console.log( 'abundant: ', a );
+			// 	console.log( 'index: ', i );
+			// 	console.log( 'sum: ', a + abundants[i + 1] );
+			// 	console.log( 'int: ', j );
+			// 	return a + abundants[i + 1] === j;
+			// });
+
+			// if ( !isSumOfAbundants ) {
+			// 	results.push( j );
+			// }
+	// }
+
+	console.log( abundants.length );
+	console.log( results.length );
+
+	return parseInt( results.reduce((prev, curr) => {
+		return prev + curr;
+	} ), 10 );
+
+			// for ( a; a < len; a++ ) {
+			// 	let isSumOfAbundants = abundants.some(function(abundant, i) {
+			// 		return abundants + ( abundants[i + 1] ) === i
+			// 	});
+
+			// 	if ( abundants[a] + ( abundants[a + 1] ) === i ) {
+			// 		isSumOfAbundants
+			// 		results.push(i);
+			// 	}
+			// }
+	// 	}
+	// }
+
+	// return abundants
 }
 
-console.log( abundants );
+// 4179871
+// for ( let i = 1; i <= 28123; i++ ) {
+// 	if ( typeof getDivs(i) !== 'undefined' ) {
+// 		abundants.push(i);
+// 	}
+// }
+
+console.log( getSum() );
+// console.log( abundants );
 

@@ -3,22 +3,22 @@
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
 # ruby prob-4-paindromes.rb
+# solution: 698896
 
-def palindrome()
-	$i = 99
-	$results = []
+# gets all palindromes in range
+def palindrome(num)
+	results = []
 
-	until $i > 999
-		if $i.to_s === $i.to_s.reverse
-			$results.push($i * $i)
+	until num == 99
+		str = (num * num).to_s
+		if str === str.reverse
+			results.push(str)
 		end
 
-		$i += 1
+		num -= 1
 	end
 
-	puts $results[$results.length - 1]
-
+	results
 end
 
-
-palindrome()
+p palindrome(999)[0].to_i

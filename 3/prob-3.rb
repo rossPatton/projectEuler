@@ -30,4 +30,4 @@ class Factor
 	end
 end
 
-puts Factor.it(600851475143)
+p Factor.it(600851475143)

@@ -15,4 +15,4 @@ def fizz(limit)
 	end.reduce(:+)
 end
 
-puts fizz(999)
+p fizz(999)

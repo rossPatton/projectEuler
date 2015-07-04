@@ -23,7 +23,7 @@ def multiples()
 
 		if isDivis === true
 			answerFound = true
-			puts num
+			p num
 			return
 		end
 

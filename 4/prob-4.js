@@ -4,6 +4,7 @@
 	Find the largest palindrome made from the product of two 3-digit numbers.
 
 	iojs prob-4-palindromes.js
+	solution: 698896
 */
 
 'use strict';

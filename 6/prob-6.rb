@@ -11,4 +11,4 @@ while i >= 0
 end
 
 output = "The sum square diff is: " + ((sum*sum) - sumSq).to_s
-puts output
+p output

@@ -11,7 +11,7 @@ def pythy()
 		( a + 1 ).upto( sum / 2 ) do |b|
 			c = sum - a - b
 
-			if a*a + b*b == c*c
+			if a * a + b * b == c * c
 				puts "a: #{a} plus b: #{b} plus c: #{c} equals #{sum}"
 			end
 		end

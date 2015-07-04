@@ -20,12 +20,10 @@ const namesArr = names.split(',').sort();
 let totals = [];
 
 namesArr.forEach((name, i) => {
-	let nameArr = name.split('');
+	const nameArr = name.split('');
 	let total = 0;
 
-	nameArr.forEach(letter => {
-		total += alpha.indexOf(letter) + 1;
-	});
+	nameArr.forEach(ltr => total += alpha.indexOf(ltr) + 1 );
 
 	total = total * (i + 1);
 
