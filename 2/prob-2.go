@@ -14,34 +14,65 @@ go run prob-2-fibonacci.go
 */
 
 package main
-import "fmt"
+import (
+	"fmt"
+	// "reflect"
+)
 
-var fibz = []int{0,1,1}
-
-/*
-	a recursive function would probs be better than a for loop that
-	runs an arbitrary amount of times
-*/
 func main() {
-	limit:= 4000000
+	limit := 4000000
+	c := make(chan int)
+
+	// original version
+	fibzLoop(limit)
+
+	// using channels and goroutines
+	go fibzGen(limit, c)
+	calcEvensChan(c)
+}
+
+// traditional way of doing it
+func fibzLoop(limit int) {
+	fibz := []int{0,1,1}
 
 	for fibz[len(fibz) - 1] < limit {
 		fibz = append(fibz, ( fibz[len(fibz)-1] + fibz[len(fibz)-2] ) )
 	}
 
-	calcEvens()
+	calcEvens(fibz)
 }
 
-func calcEvens() {
-	length := len(fibz) - 1
+func calcEvens(fibz []int) {
 	sum := 0
 
-	for length > 0 {
-		if fibz[length] % 2 == 0 {
-			sum += fibz[length]
+	for _, val := range fibz {
+		if ( val % 2 == 0 ) {
+			sum += val
 		}
-		length--
 	}
 
 	fmt.Println(sum)
+}
+
+func calcEvensChan(c chan int) {
+	sum := 0
+
+	for val := range c {
+		if ( val % 2 == 0 ) {
+			sum += val
+		}
+	}
+
+	fmt.Println(sum)
+}
+
+func fibzGen(limit int, c chan int) {
+	fibz := []int{0,1,1}
+
+	for fibz[len(fibz) - 1] < limit {
+		fibz = append(fibz, ( fibz[len(fibz)-1] + fibz[len(fibz)-2] ) )
+		c <- fibz[len(fibz) - 1]
+	}
+
+	close(c)
 }

@@ -15,6 +15,7 @@ iojs prob-2-fibonacci.js
 
 'use strict';
 
+// simple solution
 // function calcEvens(fibz) {
 // 	let sum = 0;
 
@@ -38,7 +39,7 @@ iojs prob-2-fibonacci.js
 
 // console.log( getfibz(4000000) );
 
-// alternative below using generators
+// alternative below using generators and a more functional approach
 (function() {
 	function calcEvens(fibz) {
 		return fibz.filter(function(val) {
