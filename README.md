@@ -3,4 +3,6 @@ projectEuler
 
 using project euler as a method to learn other programming languages as well as refine my existing skillset.
 
-right now focusing on js (what i already know) and go (what i don't), eventually working through to other languages as i have time
+approach so far has been to do the problem in js first and then try it with other languages.
+
+not really trying to do like, every euler problem (or even trying to find the best way of doing it), just experimenting
