@@ -48,7 +48,13 @@ fizzChart <- c( length(fizz), length(buzz), length(fizzbuzz), length(notFizz) )
 names( fizzChart ) <- c( 'Fizz', 'Buzz', 'FizzBuzz', 'Other' )
 
 # creates the barchart and puts it at ./fizzbuzz.gif
-jpeg( 'fizzbuzz.gif' )
+png( 'fizzbuzz.png',
+	width     = 1200,
+	height    = 1200,
+	units     = "px",
+	res       = 72
+)
+
 barplot( fizzChart, main='Fizz Distribution',
 	ylab='Number of Occurences' )
 dev.off()
