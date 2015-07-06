@@ -5,56 +5,50 @@
 
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-# iojs prob-1.js
+# Rscript prob-1.R
 
 # @solution 233168
 
-# for ( i in 1:1000 ) {
-# 	if( i %% 15 == 0 ){
-# 		print( 'fizzbuzz' )
-# 	} else if ( i %% 3 == 0 ){
-# 		print( 'fizz' )
-# 	} else if ( i %% 5 == 0 ) {
-# 		print( 'buzz' )
-# 	} else {
-# 		print( i )
-# 	}
-# }
+# initialize am empty vector
+nums <- vector( mode='numeric', length=0 )
 
-# getFizz(num) {
-# 	for ( i in 1:num ) {
-# 		if( i %% 15 == 0 ){
-# 			print( 'fizzbuzz' )
-# 		} else if ( i %% 3 == 0 ){
-# 			print( 'fizz' )
-# 		} else if ( i %% 5 == 0 ) {
-# 			print( 'buzz' )
-# 		} else {
-# 			print( i )
-# 		}
-# 	}
-# }
+for ( i in 1:999 ) {
+	if ( i %% 3 == 0 || i %% 5 == 0 ) {
+		nums <- c(nums, i)
+	}
+}
 
-# getFizz(1000)
+# solution for the actual problem
+print( Reduce('+', nums) )
 
-# 'use strict';
 
-# let sum = 0;
+# for funsies, create a bar chart of fizz buzz
+# there's definitely a better way to do this im sure
+fizz <- vector( mode='numeric', length=0 )
+buzz <- vector( mode='numeric', length=0 )
+fizzbuzz <- vector( mode='numeric', length=0 )
+notFizz <- vector( mode='numeric', length=0 )
 
-# // a generator function
-# function* fuzzGen(limit) {
-# 	let count = 0;
+for ( i in 1:999 ) {
+	if ( i %% 3 == 0 && i %% 5 == 0 ) {
+		fizzbuzz <- c(fizzbuzz, i)
+	}
+	else if ( i %% 3 == 0 ) {
+		fizz <- c(fizz, i)
+	}
+	else if ( i %% 5 == 0 ) {
+		buzz <- c(buzz, i)
+	}
+	else {
+		notFizz <- c(notFizz, i)
+	}
+}
 
-# 	while ( count < limit ) {
-# 		if ( count % 3 === 0 || count % 5 === 0 ) {
-# 			yield count;
-# 		}
-# 		count++;
-# 	}
-# }
+fizzChart <- c( length(fizz), length(buzz), length(fizzbuzz), length(notFizz) )
+names( fizzChart ) <- c( 'Fizz', 'Buzz', 'FizzBuzz', 'Other' )
 
-# for ( let val of fuzzGen(1000) ) {
-# 	sum += val;
-# }
-
-# console.log( sum );
+# creates the barchart and puts it at ./fizzbuzz.gif
+jpeg( 'fizzbuzz.gif' )
+barplot( fizzChart, main='Fizz Distribution',
+	ylab='Number of Occurences' )
+dev.off()
