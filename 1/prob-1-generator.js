@@ -10,24 +10,25 @@ iojs prob-1.js
 @solution 233168
 */
 
-'use strict';
+'use strict'
 
-let sum = 0;
+let sum = 0
 
 // a generator function
 function* fuzzGen(limit) {
-	let count = 0;
+  let count = 0;
 
-	while ( count < limit ) {
-		if ( count % 3 === 0 || count % 5 === 0 ) {
-			yield count;
-		}
-		count++;
-	}
+  while ( count < limit ) {
+    if ( count % 3 === 0 || count % 5 === 0 ) {
+      yield count
+    }
+
+    count++
+  }
 }
 
-for ( let val of fuzzGen(1000) ) {
-	sum += val;
+for ( const val of fuzzGen(1000) ) {
+  sum += val
 }
 
-console.log( sum );
+console.log( sum )

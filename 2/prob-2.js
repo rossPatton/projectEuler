@@ -13,56 +13,29 @@ iojs prob-2-fibonacci.js
 
 */
 
-'use strict';
+'use strict'
 
-// simple solution
-// function calcEvens(fibz) {
-// 	let sum = 0;
+function calcEvens(fibz) {
+	let sum = 0;
 
-// 	for ( let num of fibz ) {
-// 		sum += num % 2 === 0 ? num : 0;
-// 	}
-
-// 	return sum;
-// }
-
-// // get fibz up to limit, then calc evens
-// function getfibz(limit) {
-// 	let fibz = [0, 1, 1];
-
-// 	while ( fibz[fibz.length - 1] < limit ) {
-// 		fibz.push( fibz[fibz.length - 1] + fibz[fibz.length - 2] );
-// 	}
-
-// 	return calcEvens(fibz);
-// }
-
-// console.log( getfibz(4000000) );
-
-// alternative below using generators and a more functional approach
-(function() {
-	function calcEvens(fibz) {
-		return fibz.filter(function(val) {
-			return val % 2 === 0;
-		}).reduce(function( prev, curr ) {
-			return prev + curr;
-		});
+	for ( const num of fibz ) {
+		sum += num % 2 === 0 ? num : 0;
 	}
 
-	// get fibz up to limit, then calc evens
-	function* fibzGen(fibz) {
-		yield fibz[fibz.length - 1] + fibz[fibz.length - 2];
+	return sum;
+}
+
+// get fibz up to limit, then calc evens
+function getfibz(limit) {
+	const fibz = [0, 1, 1];
+
+	while ( fibz[fibz.length - 1] < limit ) {
+		fibz.push( fibz[fibz.length - 1] + fibz[fibz.length - 2] );
 	}
 
-	function getFibz(limit) {
-		let fibz = [0, 1, 1];
+	console.log(fibz)
 
-		while ( fibzGen(fibz).next().value < limit ) {
-			fibz.push( fibzGen(fibz).next().value );
-		}
+	return calcEvens(fibz);
+}
 
-		return fibz;
-	}
-
-	console.log( calcEvens( getFibz(4000000) ) );
-}());
+console.log( getfibz(4000000) );

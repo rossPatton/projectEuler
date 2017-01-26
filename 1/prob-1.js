@@ -5,23 +5,16 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 
-iojs --harmony_arrow_functions prob-1.js
-
 @solution 233168
 */
 
-'use strict';
+'use strict'
 
-const _ = require('lodash');
-
-function getSumOfMultiples(start, end) {
-	return _.range(start, end)
-	.filter(num => {
-		return num % 3 === 0 || num % 5 === 0;
-	})
-	.reduce((prev, curr) => {
-		return prev + curr;
-	});
+const getSumOfMultiples = (limit) => {
+  return [...Array(limit).keys()]
+    .filter(num => num % 3 === 0 || num % 5 === 0)
+    .reduce((prev, curr) => prev + curr)
 }
 
-console.log( getSumOfMultiples(1, 1000) );
+console.log( getSumOfMultiples(1000) )
+module.exports = getSumOfMultiples
