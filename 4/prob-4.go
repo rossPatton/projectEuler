@@ -43,5 +43,6 @@ func reverse(s string) string {
   for i := 0; i < length; i++ {
     n[length-i-1] = orig[i]
   }
+
   return string(n);
 }

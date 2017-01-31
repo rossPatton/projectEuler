@@ -15,8 +15,8 @@ function palindrome(i) {
 	}
 
 	while ( i-- ) {
-		let str = (i * i).toString();
-		// if we start at our limit and go backwards, the first match is the biggest
+		const str = (i * i).toString();
+		// if we start at our limit and go backwards, so the first match is the biggest
 		if ( str === reverse(str) ) {
 			return str;
 		}
