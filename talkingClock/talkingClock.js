@@ -19,10 +19,10 @@
 */
 
 const {
-  arr,
   digitMap,
   hoursMap,
   tensMap,
+  times,
 } = require('./constants');
 
 const getMinutes = (minutes) => {
@@ -32,19 +32,22 @@ const getMinutes = (minutes) => {
   const digitMapped = digitMap[digitsPlace];
   const tensMapped = tensMap[tensPlace];
 
+  // cases 0-9
   if (isLessThanTen) {
     if (digitsPlace === '0') return '';
     return `o' ${digitMapped}`;
   }
 
+  // cases 10/20/30/etc
   const isTens = !!tensMapped && !digitMapped;
   if (isTens) return tensMapped;
 
+  // more complicated cases 19/24/37, etc
   const includeDigits = parseInt(digitsPlace, 10) > 0;
   return `${tensMapped} ${includeDigits ? digitMapped : ''}`;
 }
 
-const talkingClock = arr.forEach((time = '') => {
+const talkingClock = arr => arr.forEach((time = '') => {
   const splitTime = time.split(':');
   const amOrPm = parseInt(splitTime[0], 10) < 12 ? 'AM' : 'PM';
   const hour = hoursMap[splitTime[0]];
@@ -52,5 +55,7 @@ const talkingClock = arr.forEach((time = '') => {
   console.log(output);
   return output;
 });
+
+talkingClock(times);
 
 module.exports = talkingClock;

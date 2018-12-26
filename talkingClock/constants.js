@@ -1,5 +1,3 @@
-const arr = ['00:00', '01:30', '12:05', '14:01', '20:29', '21:00'];
-
 const hoursMap = Object.freeze({
   '00': 'twelve',
   '01': 'one',
@@ -47,9 +45,11 @@ const tensMap = Object.freeze({
   '5': 'fifty',
 });
 
+const times = ['00:00', '01:30', '12:05', '14:01', '20:29', '21:00'];
+
 module.exports = {
-  arr,
   digitMap,
   hoursMap,
   tensMap,
+  times,
 };
